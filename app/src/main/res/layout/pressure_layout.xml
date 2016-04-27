@@ -25,8 +25,123 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30px"/>
     </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="88px">
+        <TextView
+            android:layout_width="220px"
+            android:layout_height="82px"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="24px"
+            android:background="@drawable/alarm_solid"/>
+        <TextView
+            android:layout_width="220px"
+            android:layout_height="82px"
+            android:text="上限(kg)"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="24px"
+            android:background="@drawable/alarm_solid"/>
+        <TextView
+            android:layout_width="220px"
+            android:layout_height="82px"
+            android:text="下限(kg)"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="24px"
+            android:background="@drawable/alarm_solid"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
+        <TextView
+            android:layout_width="220px"
+            android:layout_height="82px"
+            android:text="主机"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="24px"
+            android:background="@drawable/alarm_solid"/>
+        <LinearLayout
+            android:layout_width="221px"
+            android:layout_height="82px"
+            android:gravity="center"
+            android:background="@drawable/alarm_solid">
+            <EditText
+                android:id="@+id/pressure_et_max1"
+                android:layout_width="134px"
+                android:layout_height="48px"
+                android:text="00.0"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="24px"
+                android:background="@mipmap/input" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="220px"
+            android:layout_height="82px"
+            android:gravity="center"
+            android:background="@drawable/alarm_solid">
+            <EditText
+                android:id="@+id/pressure_et_min1"
+                android:layout_width="134px"
+                android:layout_height="48px"
+                android:text="00.0"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="24px"
+                android:background="@mipmap/input" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
+        <TextView
+            android:layout_width="220px"
+            android:layout_height="82px"
+            android:text="副机"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="24px"
+            android:background="@drawable/alarm_solid"/>
+        <LinearLayout
+            android:layout_width="221px"
+            android:layout_height="82px"
+            android:gravity="center"
+            android:background="@drawable/alarm_solid">
+            <EditText
+                android:id="@+id/pressure_et_max2"
+                android:layout_width="134px"
+                android:layout_height="48px"
+                android:text="00.0"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="24px"
+                android:background="@mipmap/input" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="220px"
+            android:layout_height="82px"
+            android:gravity="center"
+            android:background="@drawable/alarm_solid">
+            <EditText
+                android:id="@+id/pressure_et_min2"
+                android:layout_width="134px"
+                android:layout_height="48px"
+                android:text="00.0"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="24px"
+                android:background="@mipmap/input" />
+        </LinearLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

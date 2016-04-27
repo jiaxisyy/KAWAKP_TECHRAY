@@ -1,6 +1,8 @@
 package com.example.lzh.kawakp_techray.Activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,6 +10,7 @@ import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.lzh.kawakp_techray.R;
 
@@ -45,6 +48,7 @@ public class AnalogActivity extends Activity implements View.OnClickListener {
     private EditText analog_et_oxy_min,analog_et_flow_min,analog_et_concentration_min,analog_et_temp_min;
     private EditText analog_et_oxy_correction,analog_et_flow_correction,analog_et_concentration_correction,analog_et_temp_correction;
     private boolean flag=true;
+    private AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +82,21 @@ public class AnalogActivity extends Activity implements View.OnClickListener {
         analog_et_flow_correction=(EditText)findViewById(R.id.analog_et_flow_correction);
         analog_et_concentration_correction=(EditText)findViewById(R.id.analog_et_concentration_correction);
         analog_et_temp_correction=(EditText)findViewById(R.id.analog_et_temp_correction);
+
+        analog_et_oxy_max.setOnClickListener(this);
+        analog_et_flow_max.setOnClickListener(this);
+        analog_et_concentration_max.setOnClickListener(this);
+        analog_et_temp_max.setOnClickListener(this);
+
+        analog_et_oxy_min.setOnClickListener(this);
+        analog_et_flow_min.setOnClickListener(this);
+        analog_et_concentration_min.setOnClickListener(this);
+        analog_et_temp_min.setOnClickListener(this);
+
+        analog_et_oxy_correction.setOnClickListener(this);
+        analog_et_flow_correction.setOnClickListener(this);
+        analog_et_concentration_correction.setOnClickListener(this);
+        analog_et_temp_correction.setOnClickListener(this);
 
         analog_btn_back = (Button) findViewById(R.id.analog_btn_back);
         analog_btn_back.setOnClickListener(this);
@@ -163,7 +182,73 @@ public class AnalogActivity extends Activity implements View.OnClickListener {
                 startActivity(intent);
                 finish();
                 break;
+            case R.id.analog_et_oxy_max:
+                showDialog(analog_et_oxy_max,20,200);
+                break;
+            case R.id.analog_et_flow_max:
+                showDialog(analog_et_oxy_max,20,216);
+                break;
+            case R.id.analog_et_concentration_max:
+                showDialog(analog_et_oxy_max,20,232);
+                break;
+            case R.id.analog_et_temp_max:
+                showDialog(analog_et_oxy_max,20,248);
+                break;
+            case R.id.analog_et_oxy_min:
+                showDialog(analog_et_oxy_max,20,204);
+                break;
+            case R.id.analog_et_flow_min:
+                showDialog(analog_et_oxy_max,20,220);
+                break;
+            case R.id.analog_et_concentration_min:
+                showDialog(analog_et_oxy_max,20,236);
+                break;
+            case R.id.analog_et_temp_min:
+                showDialog(analog_et_oxy_max,20,252);
+                break;
+            case R.id. analog_et_oxy_correction:
+                showDialog(analog_et_oxy_max,20,208);
+                break;
+            case R.id.analog_et_flow_correction:
+                showDialog(analog_et_oxy_max,20,224);
+                break;
+            case R.id.analog_et_concentration_correction:
+                showDialog(analog_et_oxy_max,20,240);
+                break;
+            case R.id.analog_et_temp_correction:
+                showDialog(analog_et_oxy_max,20,256);
+                break;
         }
+    }
+
+
+    public void showDialog(final EditText t, final int type, final int stadr){
+        View view = getLayoutInflater().from(AnalogActivity.this).inflate(R.layout.ed_dialog,null);
+        builder = new AlertDialog.Builder(AnalogActivity.this,R.style.DialogStyle);
+        builder.setView(view);
+        builder.create();
+        builder.show();
+
+        final EditText editText = (EditText) view.findViewById(R.id.editText);
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { //设置取消按钮
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() { //设置确定按钮
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String s = editText.getText().toString();
+                t.setText(s);
+                int i = Integer.parseInt(s);
+                int[] i1 = {i};
+                MyApplication.getInstance().mdbuswritedword(20, i1, stadr, 1);
+
+            }
+        });
+
+
     }
 
     @Override

@@ -136,8 +136,6 @@ public class ParameterActivity extends Activity implements View.OnClickListener{
         builder.show();
 
        final EditText editText = (EditText) view.findViewById(R.id.editText);
-        TextView cancle = (TextView) view.findViewById(R.id.cancel);
-        TextView sure = (TextView) view.findViewById(R.id.sure);
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { //设置取消按钮
             @Override
             public void onClick(DialogInterface dialog, int which) {
