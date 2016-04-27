@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.EditText;
 
 import com.example.lzh.kawakp_techray.R;
 
@@ -12,8 +13,8 @@ import com.example.lzh.kawakp_techray.R;
  * 报警设置界面
  * Created by zuheng.lv on 2016/4/26.
  */
-public class AlarmActivity extends Activity{
-
+public class AlarmActivity extends Activity implements View.OnFocusChangeListener{
+    private EditText alarm_et_oxy_max,alarm_et_oxy_min,alarm_et_oxy_flow;
 
     private Handler handler = new Handler(){
         @Override
@@ -42,7 +43,12 @@ public class AlarmActivity extends Activity{
     }
     /**数据初始化*/
     public void initData(){
-
+        //氧气压力上限
+        alarm_et_oxy_max= (EditText) findViewById(R.id.alarm_et_oxy_max);
+        // 氧气压力下限
+        alarm_et_oxy_min= (EditText) findViewById(R.id.alarm_et_oxy_min);
+        //氧气流量上限
+        alarm_et_oxy_flow= (EditText) findViewById(R.id.alarm_et_oxy_flow);
 
     }
 
@@ -71,10 +77,43 @@ public class AlarmActivity extends Activity{
         }).start();
     }
 
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+
+        if(v.getId()==R.id.alarm_et_oxy_max&&!hasFocus){
+            String str = alarm_et_oxy_max.getText().toString();
+            int i = Integer.parseInt(str);
+            int[] j={i};
+            MyApplication.getInstance().mdbuswritedword(20,j,280,1);
+
+        }else if(v.getId()==R.id.alarm_et_oxy_min&&!hasFocus){
+            String str = alarm_et_oxy_min.getText().toString();
+            int i = Integer.parseInt(str);
+            int[] j={i};
+            MyApplication.getInstance().mdbuswritedword(20,j,284,1);
+
+        }else if(v.getId()==R.id.alarm_et_oxy_flow&&!hasFocus){
+            String str = alarm_et_oxy_flow.getText().toString();
+            int i = Integer.parseInt(str);
+            int[] j={i};
+            MyApplication.getInstance().mdbuswritedword(20,j,300,1);
+
+        }else if(v.getId()==R.id.alarm_et_oxy_flow&&!hasFocus){
+            String str = alarm_et_oxy_flow.getText().toString();
+            int i = Integer.parseInt(str);
+            int[] j={i};
+            MyApplication.getInstance().mdbuswritedword(20,j,300,1);
+
+        }
+
+
+    }
+
     /**点击监听函数*/
     class onClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
+
 
         }
     }
