@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,7 +23,7 @@ import java.util.logging.Logger;
 public class MonitorActivity extends Activity implements View.OnClickListener {
     static Logger logger = Logger.getLogger("com.hitek.serial");
     static boolean is_run_flag = false;
-//    MyApplication myApplication = new MyApplication();
+   private MyApplication myApplication;
 
     private TextView momitor_tv_pressure, momitor_tv_totalflow, momitor_tv_flow, momitor_tv_concentration, momitor_tv_runningtime;
     //循环标志
@@ -51,7 +53,6 @@ public class MonitorActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.monitor_layout);
-
 
         initView();
         initData();
@@ -153,7 +154,23 @@ public class MonitorActivity extends Activity implements View.OnClickListener {
                 break;
         }
     }
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
