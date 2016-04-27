@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lzh.kawakp_techray">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity.AlarmActivity"/>
+        <activity android:name=".Activity.MonitorActivity"/>
+        <activity android:name=".Activity.AMachineStatusActivity"/>
+        <activity android:name=".Activity.AnalogActivity"/>
+        <activity android:name=".Activity.ATimingActivity"/>
+        <activity android:name=".Activity.AValveActivity"/>
+        <activity android:name=".Activity.FlowActivity"/>
+        <activity android:name=".Activity.ParameterActivity"/>
+        <activity android:name=".Activity.PressureActivity"/>
+        <activity android:name=".Activity.RunActivity"/>
+    </application>
+
+</manifest>
