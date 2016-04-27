@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,7 +15,7 @@ import com.example.lzh.kawakp_techray.R;
  * A机阀门检验页面
  * Created by zuheng.lv on 2016/4/26.
  */
-public class AValveActivity extends Activity implements View.OnClickListener {
+public class AValveActivity extends Activity implements View.OnClickListener, View.OnTouchListener {
 
     private Handler handler = new Handler(){
         @Override
@@ -104,6 +105,18 @@ public class AValveActivity extends Activity implements View.OnClickListener {
         avalve_btn10.setOnClickListener(this);
         avalve_btn11.setOnClickListener(this);
         avalve_btn12.setOnClickListener(this);
+        avalve_btn1.setOnTouchListener(this);
+        avalve_btn2.setOnTouchListener(this);
+        avalve_btn3.setOnTouchListener(this);
+        avalve_btn4.setOnTouchListener(this);
+        avalve_btn5.setOnTouchListener(this);
+        avalve_btn6.setOnTouchListener(this);
+        avalve_btn7.setOnTouchListener(this);
+        avalve_btn8.setOnTouchListener(this);
+        avalve_btn9.setOnTouchListener(this);
+        avalve_btn10.setOnTouchListener(this);
+        avalve_btn11.setOnTouchListener(this);
+        avalve_btn12.setOnTouchListener(this);
         valve_btn_back.setOnClickListener(this);
     }
     /**数据初始化*/
@@ -231,7 +244,6 @@ public class AValveActivity extends Activity implements View.OnClickListener {
             }
         }).start();
     }
-
 
     /**点击监听函数*/
     @Override
@@ -375,7 +387,172 @@ public class AValveActivity extends Activity implements View.OnClickListener {
                 break;
         }
     }
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (v.getId()){
+            case R.id. avalve_btn1:
+                if(event.getAction()== MotionEvent.ACTION_UP) {
+                    if(avalve_btn12.isPressed()){
+                        avalve_btn12.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,1,1);
+                    }else{
+                        avalve_btn12.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,1,1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn2:
+                if(event.getAction()== MotionEvent.ACTION_UP) {
+                    if (avalve_btn2.isPressed()) {
+                        avalve_btn2.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1, b, 3, 1);
+                    } else {
+                        avalve_btn2.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1, b, 3, 1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn3:
+                if(event.getAction()== MotionEvent.ACTION_UP){
+                    if(avalve_btn3.isPressed()){
+                        avalve_btn3.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,4,1);
+                    }else{
+                        avalve_btn3.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,4,1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn4:
+                if(event.getAction()== MotionEvent.ACTION_UP){
+                    if(avalve_btn4.isPressed()){
+                        avalve_btn4.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,5,1);
+                    }else{
+                        avalve_btn4.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,5,1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn5:
+                if(event.getAction()== MotionEvent.ACTION_UP){
+                    if(avalve_btn5.isPressed()){
+                        avalve_btn5.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,6,1);
+                    }else{
+                        avalve_btn5.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,6,1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn6:
+                if(event.getAction()== MotionEvent.ACTION_UP){
+                    if(avalve_btn6.isPressed()){
+                        avalve_btn6.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,7,1);
+                    }else{
+                        avalve_btn6.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,7,1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn7:
+                if(event.getAction()== MotionEvent.ACTION_UP){
+                    if(avalve_btn7.isPressed()){
+                        avalve_btn7.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,10,1);
+                    }else{
+                        avalve_btn7.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,10,1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn8:
+                if(event.getAction()== MotionEvent.ACTION_UP){
+                    if(avalve_btn8.isPressed()){
+                        avalve_btn8.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,11,1);
+                    }else{
+                        avalve_btn8.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,11,1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn9:
+                if(event.getAction()== MotionEvent.ACTION_UP){
+                    if(avalve_btn9.isPressed()){
+                        avalve_btn9.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,12,1);
+                    }else{
+                        avalve_btn9.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,12,1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn10:
+                if(event.getAction()== MotionEvent.ACTION_UP){
+                    if(avalve_btn10.isPressed()){
+                        avalve_btn10.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,13,1);
+                    }else{
+                        avalve_btn10.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,13,1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn11:
+                if(event.getAction()== MotionEvent.ACTION_UP){
+                    if(avalve_btn11.isPressed()){
+                        avalve_btn11.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,0,1);
+                    }else{
+                        avalve_btn11.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,0,1);
+                    }
+                }
+                break;
+            case R.id.avalve_btn12:
+                if(event.getAction()== MotionEvent.ACTION_UP){
+                    if(avalve_btn12.isPressed()){
+                        avalve_btn12.setPressed(false);
+                        byte[] b = {0};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,1,1);
+                    }else{
+                        avalve_btn12.setPressed(true);
+                        byte[] b = {1};
+                        MyApplication.getInstance().mdbuswritebyte(1,b,1,1);
+                    }
+                }
+                break;
+        }
+        return false;
+    }
 
-
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        flag=false;
+    }
 }
