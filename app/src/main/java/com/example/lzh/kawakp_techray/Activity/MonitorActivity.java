@@ -12,16 +12,21 @@ import android.widget.TextView;
 import com.example.lzh.kawakp_techray.R;
 import com.example.lzh.kawakp_techray.serialJNI.serialJNI;
 
+import java.util.logging.Logger;
+
 /**
  * 运行监控页面
  * Created by zuheng.lv on 2016/4/26.
  */
 public class MonitorActivity extends Activity implements View.OnClickListener {
+    static Logger logger = Logger.getLogger("com.hitek.serial");
+    static boolean is_run_flag = false;
+//    MyApplication myApplication = new MyApplication();
 
     private TextView momitor_tv_pressure, momitor_tv_totalflow, momitor_tv_flow, momitor_tv_concentration, momitor_tv_runningtime;
     //循环标志
     private boolean flag = true;
-    private serialJNI serial = new serialJNI();
+
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -46,6 +51,8 @@ public class MonitorActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.monitor_layout);
+
+
         initView();
         initData();
     }
@@ -100,19 +107,19 @@ public class MonitorActivity extends Activity implements View.OnClickListener {
                     try {
                         //氧气压力值
 
-                        float[] i = serial.mdbusreadreal(30, 212, 1);
+                        float[] i = MyApplication.getInstance().mdbusreadreal(30, 212, 1);
                         float i1 = (float) (Math.round(i[0] * 10)) / 10;
                         //流量统计
-                        float[] j = serial.mdbusreadreal(30, 264, 1);
+                        float[] j = MyApplication.getInstance().mdbusreadreal(30, 264, 1);
                         float j1 = (float) (Math.round(j[0] * 10000)) / 10000;
                         //氧气流量
-                        float[] k = serial.mdbusreadreal(30, 228, 1);
+                        float[] k = MyApplication.getInstance().mdbusreadreal(30, 228, 1);
                         float k1 = (float) (Math.round(k[0] * 100)) / 100;
                         //氧气浓度
-                        float[] l = serial.mdbusreadreal(30, 244, 1);
+                        float[] l = MyApplication.getInstance().mdbusreadreal(30, 244, 1);
                         float l1 = (float) (Math.round(l[0] * 100)) / 100;
                         //A机运行时间
-                        int[] ints = serial.mdbusreaddword(20, 458, 1);
+                        int[] ints = MyApplication.getInstance().mdbusreaddword(20, 458, 1);
                         Bundle bundle = new Bundle();
                         bundle.putString("i1", String.valueOf(i1));
                         bundle.putString("j1", String.valueOf(j1));
