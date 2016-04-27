@@ -130,7 +130,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A进气阀"
+            android:text="A均压阀"
             android:textColor="#ffffff"
             android:textSize="24px"
             android:layout_centerHorizontal="true"
@@ -138,7 +138,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="B进气阀"
+            android:text="B均压阀"
             android:textColor="#ffffff"
             android:textSize="24px"
             android:layout_centerHorizontal="true"
@@ -146,7 +146,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A排气阀"
+            android:text="A清洗阀"
             android:textColor="#ffffff"
             android:textSize="24px"
             android:layout_centerHorizontal="true"
@@ -154,7 +154,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="B排气阀"
+            android:text="B清洗阀"
             android:textColor="#ffffff"
             android:textSize="24px"
             android:layout_centerHorizontal="true"
@@ -162,7 +162,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A产氧阀"
+            android:text="空压机"
             android:textColor="#ffffff"
             android:textSize="24px"
             android:layout_centerHorizontal="true"
@@ -170,11 +170,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A产氧阀"
+            android:text="冷干机"
             android:textColor="#ffffff"
             android:textSize="24px"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="40px"/>
+            android:layout_marginLeft="60px"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -188,7 +188,7 @@
             android:background="@drawable/amachinestatu_btn_selector"
             />
         <Button
-            android:id="@+id/sataus_btn_valve8"
+            android:id="@+id/stataus_btn_valve8"
             android:layout_width="86px"
             android:layout_height="36px"
             android:layout_marginLeft="42px"

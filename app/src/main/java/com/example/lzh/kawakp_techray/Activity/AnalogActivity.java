@@ -1,10 +1,12 @@
 package com.example.lzh.kawakp_techray.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.lzh.kawakp_techray.R;
 
@@ -12,7 +14,7 @@ import com.example.lzh.kawakp_techray.R;
  *模拟量设置界面
  * Created by zuheng.lv on 2016/4/26.
  */
-public class AnalogActivity extends Activity{
+public class AnalogActivity extends Activity implements View.OnClickListener {
 
 
     private Handler handler = new Handler(){
@@ -26,6 +28,8 @@ public class AnalogActivity extends Activity{
             }
         }
     };
+
+    private Button analog_btn_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +41,8 @@ public class AnalogActivity extends Activity{
     /**控件初始化*/
     public void initView(){
 
-
+        analog_btn_back = (Button) findViewById(R.id.analog_btn_back);
+        analog_btn_back.setOnClickListener(this);
     }
     /**数据初始化*/
     public void initData(){
@@ -70,11 +75,18 @@ public class AnalogActivity extends Activity{
         }).start();
     }
 
-    /**点击监听函数*/
-    class onClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
 
+    /**点击监听函数*/
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.analog_btn_back:
+                Intent intent = new Intent(AnalogActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+                break;
         }
     }
+
+
 }
