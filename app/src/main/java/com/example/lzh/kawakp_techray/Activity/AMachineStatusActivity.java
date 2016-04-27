@@ -27,18 +27,18 @@ public class AMachineStatusActivity extends Activity implements View.OnClickList
                     /**这里写UI更新函数*/
                     switch (msg.what){
                         case 1:
-//                            stataus_btn_valve1.setSelected(y2);
-//                            stataus_btn_valve2.setSelected(y3);
-//                            stataus_btn_valve3.setSelected(y4);
-//                            stataus_btn_valve4.setSelected(y5);
-//                            stataus_btn_valve5.setSelected(y6);
-//                            stataus_btn_valve6.setSelected(y7);
-//                            stataus_btn_valve7.setSelected(y10);
-//                            stataus_btn_valve8.setSelected(y11);
-//                            stataus_btn_valve9.setSelected(y12);
-//                            stataus_btn_valve10.setSelected(y13);
-//                            stataus_btn_valve11.setSelected(y0);
-//                            stataus_btn_valve12.setSelected(y1);
+                            stataus_btn_valve1.setSelected(msg.getData().getBoolean("y2"));
+                            stataus_btn_valve2.setSelected(msg.getData().getBoolean("y3"));
+                            stataus_btn_valve3.setSelected(msg.getData().getBoolean("y4"));
+                            stataus_btn_valve4.setSelected(msg.getData().getBoolean("y5"));
+                            stataus_btn_valve5.setSelected(msg.getData().getBoolean("y6"));
+                            stataus_btn_valve6.setSelected(msg.getData().getBoolean("y7"));
+                            stataus_btn_valve7.setSelected(msg.getData().getBoolean("y10"));
+                            stataus_btn_valve8.setSelected(msg.getData().getBoolean("y11"));
+                            stataus_btn_valve9.setSelected(msg.getData().getBoolean("y12"));
+                            stataus_btn_valve10.setSelected(msg.getData().getBoolean("y13"));
+                            stataus_btn_valve11.setSelected(msg.getData().getBoolean("y0"));
+                            stataus_btn_valve12.setSelected(msg.getData().getBoolean("y1"));
                             break;
                     }
 
@@ -126,18 +126,66 @@ public class AMachineStatusActivity extends Activity implements View.OnClickList
                     byte[] y1 = MyApplication.getInstance().mdbusreadbyte(1, 2, 1);
 
                     Bundle bundle = new Bundle();
-                    bundle.putByteArray("y0", y0);
-                    bundle.putByteArray("y1", y1);
-                    bundle.putByteArray("y2", y2);
-                    bundle.putByteArray("y3", y3);
-                    bundle.putByteArray("y4", y4);
-                    bundle.putByteArray("y5", y5);
-                    bundle.putByteArray("y6", y6);
-                    bundle.putByteArray("y7", y7);
-                    bundle.putByteArray("y10", y10);
-                    bundle.putByteArray("y11", y11);
-                    bundle.putByteArray("y12", y12);
-                    bundle.putByteArray("y13", y13);
+                    if(String.valueOf(y0).equals("0")){
+                        bundle.putBoolean("y0", false);
+                    }else if(String.valueOf(y0).equals("1")){
+                        bundle.putBoolean("y0", true);
+                    }
+                    if(String.valueOf(y1).equals("0")){
+                        bundle.putBoolean("y1", false);
+                    }else if(String.valueOf(y1).equals("1")){
+                        bundle.putBoolean("y1", true);
+                    }
+                    if(String.valueOf(y2).equals("0")){
+                        bundle.putBoolean("y2", false);
+                    }else if(String.valueOf(y2).equals("1")){
+                        bundle.putBoolean("y2", true);
+                    }
+                    if(String.valueOf(y3).equals("0")){
+                        bundle.putBoolean("y3", false);
+                    }else if(String.valueOf(y3).equals("1")){
+                        bundle.putBoolean("y3", true);
+                    }
+                    if(String.valueOf(y4).equals("0")){
+                        bundle.putBoolean("y4", false);
+                    }else if(String.valueOf(y4).equals("1")){
+                        bundle.putBoolean("y4", true);
+                    }
+                    if(String.valueOf(y5).equals("0")){
+                        bundle.putBoolean("y5", false);
+                    }else if(String.valueOf(y5).equals("1")){
+                        bundle.putBoolean("y5", true);
+                    }
+                    if(String.valueOf(y6).equals("0")){
+                        bundle.putBoolean("y6", false);
+                    }else if(String.valueOf(y6).equals("1")){
+                        bundle.putBoolean("y6", true);
+                    }
+                    if(String.valueOf(y7).equals("0")){
+                        bundle.putBoolean("y7", false);
+                    }else if(String.valueOf(y7).equals("1")){
+                        bundle.putBoolean("y7", true);
+                    }
+                    if(String.valueOf(y10).equals("0")){
+                        bundle.putBoolean("y10", false);
+                    }else if(String.valueOf(y10).equals("1")){
+                        bundle.putBoolean("y10", true);
+                    }
+                    if(String.valueOf(y11).equals("0")){
+                        bundle.putBoolean("y11", false);
+                    }else if(String.valueOf(y11).equals("1")){
+                        bundle.putBoolean("y11", true);
+                    }
+                    if(String.valueOf(y12).equals("0")){
+                        bundle.putBoolean("y12", false);
+                    }else if(String.valueOf(y12).equals("1")){
+                        bundle.putBoolean("y12", true);
+                    }
+                    if(String.valueOf(y13).equals("0")){
+                        bundle.putBoolean("y13", false);
+                    }else if(String.valueOf(y13).equals("1")){
+                        bundle.putBoolean("y13", true);
+                    }
                     Message msg = new Message();
                     msg.setData(bundle);
                     msg.what = 1;
