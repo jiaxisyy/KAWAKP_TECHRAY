@@ -35,6 +35,18 @@ public class AValveActivity extends Activity implements View.OnClickListener {
                     avalve_btn_valve10.setSelected(msg.getData().getBoolean("y13"));
                     avalve_btn_valve11.setSelected(msg.getData().getBoolean("y0"));
                     avalve_btn_valve12.setSelected(msg.getData().getBoolean("y1"));
+                    avalve_btn1.setPressed(msg.getData().getBoolean("y2"));
+                    avalve_btn2.setPressed(msg.getData().getBoolean("y3"));
+                    avalve_btn3.setPressed(msg.getData().getBoolean("y4"));
+                    avalve_btn4.setPressed(msg.getData().getBoolean("y5"));
+                    avalve_btn5.setPressed(msg.getData().getBoolean("y6"));
+                    avalve_btn6.setPressed(msg.getData().getBoolean("y7"));
+                    avalve_btn7.setPressed(msg.getData().getBoolean("y10"));
+                    avalve_btn8.setPressed(msg.getData().getBoolean("y11"));
+                    avalve_btn9.setPressed(msg.getData().getBoolean("y12"));
+                    avalve_btn10.setPressed(msg.getData().getBoolean("y13"));
+                    avalve_btn11.setPressed(msg.getData().getBoolean("y0"));
+                    avalve_btn12.setPressed(msg.getData().getBoolean("y1"));
                     break;
             }
         }
@@ -230,40 +242,136 @@ public class AValveActivity extends Activity implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.avalve_btn1:
-
+                if(avalve_btn1.isPressed()){
+                    avalve_btn1.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,2,1);
+                }else{
+                    avalve_btn1.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,2,1);
+                }
                 break;
             case R.id.avalve_btn2:
-
+                if(avalve_btn2.isPressed()){
+                    avalve_btn2.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,3,1);
+                }else{
+                    avalve_btn2.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,3,1);
+                }
                 break;
             case R.id.avalve_btn3:
-
+                if(avalve_btn3.isPressed()){
+                    avalve_btn3.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,4,1);
+                }else{
+                    avalve_btn3.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,4,1);
+                }
                 break;
             case R.id.avalve_btn4:
-
+                if(avalve_btn4.isPressed()){
+                    avalve_btn4.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,5,1);
+                }else{
+                    avalve_btn4.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,5,1);
+                }
                 break;
             case R.id.avalve_btn5:
-
+                if(avalve_btn5.isPressed()){
+                    avalve_btn5.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,6,1);
+                }else{
+                    avalve_btn5.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,6,1);
+                }
                 break;
             case R.id.avalve_btn6:
-
+                if(avalve_btn6.isPressed()){
+                    avalve_btn6.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,7,1);
+                }else{
+                    avalve_btn6.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,7,1);
+                }
                 break;
             case R.id.avalve_btn7:
-
+                if(avalve_btn7.isPressed()){
+                    avalve_btn7.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,10,1);
+                }else{
+                    avalve_btn7.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,10,1);
+                }
                 break;
             case R.id.avalve_btn8:
-
+                if(avalve_btn8.isPressed()){
+                    avalve_btn8.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,11,1);
+                }else{
+                    avalve_btn8.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,11,1);
+                }
                 break;
             case R.id.avalve_btn9:
-
+                if(avalve_btn9.isPressed()){
+                    avalve_btn9.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,12,1);
+                }else{
+                    avalve_btn9.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,12,1);
+                }
                 break;
             case R.id.avalve_btn10:
-
+                if(avalve_btn10.isPressed()){
+                    avalve_btn10.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,13,1);
+                }else{
+                    avalve_btn10.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,13,1);
+                }
                 break;
             case R.id.avalve_btn11:
-
+                if(avalve_btn11.isPressed()){
+                    avalve_btn11.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,0,1);
+                }else{
+                    avalve_btn11.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,0,1);
+                }
                 break;
             case R.id.avalve_btn12:
-
+                if(avalve_btn12.isPressed()){
+                    avalve_btn12.setPressed(false);
+                    byte[] b = {0};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,1,1);
+                }else{
+                    avalve_btn12.setPressed(true);
+                    byte[] b = {1};
+                    MyApplication.getInstance().mdbuswritebyte(1,b,1,1);
+                }
                 break;
         }
     }
