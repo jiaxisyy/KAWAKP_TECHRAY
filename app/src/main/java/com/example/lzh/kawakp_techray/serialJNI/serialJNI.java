@@ -26,7 +26,7 @@ public class serialJNI {
     public native short[] mdbusreadword(int type, int stadr, int len);
 
     /**
-     * 写入字元件,eg:D,R
+     * 写入单字元件,eg:D,R
      */
     public native int mdbuswriteword(int type, short buf[], int stadr, int len);
 
