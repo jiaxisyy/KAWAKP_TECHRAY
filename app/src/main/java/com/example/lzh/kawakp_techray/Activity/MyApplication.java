@@ -6,11 +6,12 @@ import com.example.lzh.kawakp_techray.serialJNI.serialJNI;
  * Created by shuang.xiang on 2016/4/27.
  */
 public class MyApplication extends android.app.Application {
-    private  static serialJNI serial =null;
-    public static serialJNI getInstance(){
-        if (serial==null){
-            synchronized(MyApplication.class) {
-                if(serial==null) {
+    private static serialJNI serial = null;
+
+    public static serialJNI getInstance() {
+        if (serial == null) {
+            synchronized (MyApplication.class) {
+                if (serial == null) {
                     serial = new serialJNI();
                 }
             }
@@ -18,9 +19,8 @@ public class MyApplication extends android.app.Application {
         return serial;
     }
 
-    public MyApplication(){};
-
-
+    public MyApplication() {
+    }
 
 
 
@@ -28,6 +28,14 @@ public class MyApplication extends android.app.Application {
     public void onCreate() {
         super.onCreate();
         getInstance().init();
-        getInstance().mainloop();
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                getInstance().mainloop();
+
+            }
+        }).start();
+
     }
 }
