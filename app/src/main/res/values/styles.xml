@@ -12,5 +12,10 @@
     <style name="run_checkbox" parent="@android:style/Widget.CompoundButton.CheckBox">
     <item name="android:button">@drawable/momitor_btn_bacground_selector</item>
     </style>
+    <!--dialog-->
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+    <item name="android:windowBackground">@android:color/transparent</item>
 
+
+    </style>
 </resources>

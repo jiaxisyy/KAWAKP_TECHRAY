@@ -1,13 +1,21 @@
 package com.example.lzh.kawakp_techray.Activity;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.lzh.kawakp_techray.R;
 
@@ -15,9 +23,11 @@ import com.example.lzh.kawakp_techray.R;
  * 参数设置界面
  * Created by zuheng.lv on 2016/4/26.
  */
-public class ParameterActivity extends Activity implements View.OnClickListener, View.OnFocusChangeListener {
+public class ParameterActivity extends Activity implements View.OnClickListener{
 
-    private EditText para_et_opendelay, para_et_startdelay;
+    private TextView para_et_opendelay, para_et_startdelay;
+    private AlertDialog.Builder builder;
+
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -48,9 +58,11 @@ public class ParameterActivity extends Activity implements View.OnClickListener,
         para_btn_back = (Button) findViewById(R.id.para_btn_back);
         para_btn_back.setOnClickListener(this);
         //空压机开机延时
-        para_et_opendelay = (EditText) findViewById(R.id.para_et_opendelay);
+        para_et_opendelay = (TextView) findViewById(R.id.para_et_opendelay);
         //待机启动延时
-        para_et_startdelay = (EditText) findViewById(R.id.para_et_startdelay);
+        para_et_startdelay = (TextView) findViewById(R.id.para_et_startdelay);
+        para_et_opendelay.setOnClickListener(this);
+        para_et_startdelay.setOnClickListener(this);
     }
 
     /**
@@ -104,33 +116,47 @@ public class ParameterActivity extends Activity implements View.OnClickListener,
                 Intent intent = new Intent(ParameterActivity.this, MainActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.para_et_opendelay:
+                showDialog(para_et_opendelay,30,476);
+                break;
+            case R.id.para_et_startdelay:
+                showDialog(para_et_startdelay,30,478);
+                break;
         }
     }
 
-    /**
-     * 焦点改变的监听事件
-     *
-     * @param v
-     * @param hasFocus
-     */
-    @Override
-    public void onFocusChange(View v, boolean hasFocus) {
-        //离开输入框触发
-        if (v.getId() == R.id.para_et_opendelay && !hasFocus) {
-            //赋值
-            String str = para_et_opendelay.getText().toString();
-            float b = Float.parseFloat(str);
-            float b1 = (float) (Math.round(b * 10)) / 10;
-            float[] b2 = {b1};
-            MyApplication.getInstance().mdbuswritereal(30, b2, 476, 1);
 
-        } else if (v.getId() == R.id.para_et_startdelay && !hasFocus) {
-            String str = para_et_startdelay.getText().toString();
-            float b = Float.parseFloat(str);
-            float b1 = (float) (Math.round(b * 10)) / 10;
-            float[] b2 = {b1};
-            MyApplication.getInstance().mdbuswritereal(30, b2, 478, 1);
-        }
+
+
+    public void showDialog(final TextView t, final int type, final int stadr){
+        View view = getLayoutInflater().from(ParameterActivity.this).inflate(R.layout.ed_dialog,null);
+        builder = new AlertDialog.Builder(ParameterActivity.this,R.style.DialogStyle);
+        builder.setView(view);
+        builder.create();
+        builder.show();
+
+       final EditText editText = (EditText) view.findViewById(R.id.editText);
+        TextView cancle = (TextView) view.findViewById(R.id.cancel);
+        TextView sure = (TextView) view.findViewById(R.id.sure);
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { //设置取消按钮
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() { //设置确定按钮
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                String s = editText.getText().toString();
+                t.setText(s);
+                float b = Float.parseFloat(s);
+                float b1 = (float) (Math.round(b * 10)) / 10;
+                float[] b2 = {b1};
+                MyApplication.getInstance().mdbuswritereal(type, b2, stadr, 1);
+
+            }
+        });
 
 
     }
