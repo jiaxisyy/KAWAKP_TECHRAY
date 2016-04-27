@@ -174,11 +174,14 @@ public class MonitorActivity extends Activity implements View.OnClickListener, V
                 startActivity(intent);
                 break;
             case R.id.momitor_btn_start:
-                    momitor_btn_start.setSelected(true);
-
+                momitor_btn_start.setSelected(true);
+                 byte[] m10 = {1};
+               MyApplication.getInstance().mdbuswritebyte(2,m10,10,1);
                 break;
             case R.id.momitor_btn_stop:
-
+                momitor_btn_start.setSelected(true);
+                byte[] m101 = {1};
+                MyApplication.getInstance().mdbuswritebyte(2,m101,101,1);
                 break;
         }
     }
@@ -209,6 +212,24 @@ public class MonitorActivity extends Activity implements View.OnClickListener, V
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        switch (v.getId()) {
+
+            case R.id.momitor_btn_start:
+                if(event.getAction()==MotionEvent.ACTION_UP){
+                    momitor_btn_start.setSelected(true);
+                    byte[] m10 = {1};
+                    MyApplication.getInstance().mdbuswritebyte(2,m10,10,1);
+                }
+
+                break;
+            case R.id.momitor_btn_stop:
+                if(event.getAction()==MotionEvent.ACTION_UP) {
+                    momitor_btn_start.setSelected(true);
+                    byte[] m101 = {1};
+                    MyApplication.getInstance().mdbuswritebyte(2, m101, 101, 1);
+                    break;
+                }
+        }
         return false;
     }
 }
