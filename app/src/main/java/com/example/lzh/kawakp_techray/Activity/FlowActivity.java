@@ -43,6 +43,7 @@ public class FlowActivity extends Activity implements View.OnClickListener, View
         setContentView(R.layout.flow_layout);
         initView();
         initData();
+        setData();
     }
 
     /**控件初始化*/

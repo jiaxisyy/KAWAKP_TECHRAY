@@ -64,7 +64,7 @@ public class AValveActivity extends Activity implements View.OnClickListener, Vi
         setContentView(R.layout.avalve_layout);
         initView();
         initData();
-        getData();
+        setData();
     }
 
     /**控件初始化*/

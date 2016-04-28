@@ -34,6 +34,7 @@ public class AlarmActivity extends Activity implements View.OnFocusChangeListene
         setContentView(R.layout.alarm_layout);
         initView();
         initData();
+        setData();
     }
 
     /**控件初始化*/

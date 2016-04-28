@@ -56,7 +56,7 @@ public class AMachineStatusActivity extends Activity implements View.OnClickList
         setContentView(R.layout.amachinestatus_layout);
         initView();
         initData();
-        getData();
+        setData();
     }
 
     /**控件初始化*/

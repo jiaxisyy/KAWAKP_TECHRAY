@@ -55,6 +55,7 @@ public class AnalogActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.analog_layout);
         initView();
         initData();
+        setData();
     }
 
     /**控件初始化*/

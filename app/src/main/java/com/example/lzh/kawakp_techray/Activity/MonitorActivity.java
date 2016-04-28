@@ -61,6 +61,7 @@ public class MonitorActivity extends Activity implements View.OnClickListener, V
 
         initView();
         initData();
+        setData();
     }
 
 
