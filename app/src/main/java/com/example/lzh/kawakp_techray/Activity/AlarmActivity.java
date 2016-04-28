@@ -103,7 +103,6 @@ public class AlarmActivity extends Activity implements View.OnFocusChangeListene
             int i = Integer.parseInt(str);
             int[] j={i};
             MyApplication.getInstance().mdbuswritedword(20,j,300,1);
-
         }
 
 

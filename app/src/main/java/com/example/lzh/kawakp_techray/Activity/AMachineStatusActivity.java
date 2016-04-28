@@ -56,6 +56,7 @@ public class AMachineStatusActivity extends Activity implements View.OnClickList
         setContentView(R.layout.amachinestatus_layout);
         initView();
         initData();
+        getData();
     }
 
     /**控件初始化*/
@@ -126,64 +127,64 @@ public class AMachineStatusActivity extends Activity implements View.OnClickList
                     byte[] y1 = MyApplication.getInstance().mdbusreadbyte(1, 2, 1);
 
                     Bundle bundle = new Bundle();
-                    if(String.valueOf(y0).equals("0")){
+                    if(y0[0]==0){
                         bundle.putBoolean("y0", false);
-                    }else if(String.valueOf(y0).equals("1")){
+                    }else if(y0[0]==1){
                         bundle.putBoolean("y0", true);
                     }
-                    if(String.valueOf(y1).equals("0")){
+                    if(y1[0]==0){
                         bundle.putBoolean("y1", false);
-                    }else if(String.valueOf(y1).equals("1")){
+                    }else if(y1[0]==1){
                         bundle.putBoolean("y1", true);
                     }
-                    if(String.valueOf(y2).equals("0")){
+                    if(y2[0]==0){
                         bundle.putBoolean("y2", false);
-                    }else if(String.valueOf(y2).equals("1")){
+                    }else if(y2[0]==1){
                         bundle.putBoolean("y2", true);
                     }
-                    if(String.valueOf(y3).equals("0")){
+                    if(y3[0]==0){
                         bundle.putBoolean("y3", false);
-                    }else if(String.valueOf(y3).equals("1")){
+                    }else if(y3[0]==1){
                         bundle.putBoolean("y3", true);
                     }
-                    if(String.valueOf(y4).equals("0")){
+                    if(y4[0]==0){
                         bundle.putBoolean("y4", false);
-                    }else if(String.valueOf(y4).equals("1")){
+                    }else if(y4[0]==1){
                         bundle.putBoolean("y4", true);
                     }
-                    if(String.valueOf(y5).equals("0")){
+                    if(y5[0]==0){
                         bundle.putBoolean("y5", false);
-                    }else if(String.valueOf(y5).equals("1")){
+                    }else if(y5[0]==0){
                         bundle.putBoolean("y5", true);
                     }
-                    if(String.valueOf(y6).equals("0")){
+                    if(y6[0]==0){
                         bundle.putBoolean("y6", false);
-                    }else if(String.valueOf(y6).equals("1")){
+                    }else if(y6[0]==1){
                         bundle.putBoolean("y6", true);
                     }
-                    if(String.valueOf(y7).equals("0")){
+                    if(y7[0]==0){
                         bundle.putBoolean("y7", false);
-                    }else if(String.valueOf(y7).equals("1")){
+                    }else if(y7[0]==1){
                         bundle.putBoolean("y7", true);
                     }
-                    if(String.valueOf(y10).equals("0")){
+                    if(y10[0]==0){
                         bundle.putBoolean("y10", false);
-                    }else if(String.valueOf(y10).equals("1")){
+                    }else if(y10[0]==1){
                         bundle.putBoolean("y10", true);
                     }
-                    if(String.valueOf(y11).equals("0")){
+                    if(y11[0]==0){
                         bundle.putBoolean("y11", false);
-                    }else if(String.valueOf(y11).equals("1")){
+                    }else if(y11[0]==1){
                         bundle.putBoolean("y11", true);
                     }
-                    if(String.valueOf(y12).equals("0")){
+                    if(y12[0]==0){
                         bundle.putBoolean("y12", false);
-                    }else if(String.valueOf(y12).equals("1")){
+                    }else if(y12[0]==1){
                         bundle.putBoolean("y12", true);
                     }
-                    if(String.valueOf(y13).equals("0")){
+                    if(y13[0]==0){
                         bundle.putBoolean("y13", false);
-                    }else if(String.valueOf(y13).equals("1")){
+                    }else if(y13[0]==1){
                         bundle.putBoolean("y13", true);
                     }
                     Message msg = new Message();
